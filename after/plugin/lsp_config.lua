@@ -82,3 +82,7 @@ function go_org_imports(wait_ms)
 --vim.lsp.set_log_level("debug")
 --
 vim.api.nvim_create_autocmd('BufWritePre', {pattern='*.go', command='lua go_org_imports(1000)'})
+
+vim.cmd[[
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+]]
